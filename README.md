@@ -1,7 +1,3 @@
-Sure, here is a comprehensive README for your project:
-
----
-
 # Image Background Remover
 
 This project provides a graphical user interface (GUI) for removing the background from images using the `rembg` library. The GUI is built with `tkinter` and features a dark theme courtesy of `sv_ttk`. This tool is particularly useful for photographers, graphic designers, and anyone who needs to isolate subjects in images for further processing.
