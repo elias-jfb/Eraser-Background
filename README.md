@@ -76,6 +76,32 @@ Using this tool, the photographer can quickly process a batch of product images,
 ## Contributing
 Contributions are welcome! If you have any suggestions or improvements, feel free to submit a pull request or open an issue.
 
+
+# Image Background Remover
+
+This is a small program that allows you to remove the background from selected images using the `rembg` library and visualize the result in a simple graphical interface.
+
+## Dependencies
+
+The program depends on the following Python libraries:
+
+- [rembg](https://github.com/danielgatis/rembg): A library for automatically removing the background from images using a neural network.
+- [Pillow](https://github.com/python-pillow/Pillow): A Python Imaging Library that adds image processing capabilities to your Python interpreter.
+- [sv_ttk](https://github.com/SavinaRoja/Swiss-Tournament-Toolkit): A collection of widget styles and helper functions to make Tkinter applications look and work better.
+
+## Usage
+
+To run the program, simply execute `python image_background_remover.py` in your terminal. This will open the graphical interface where you can select an input image, remove the background, and save the resulting image.
+
+## Credits
+
+- [Daniel Gatis](https://github.com/danielgatis): Creator of the `rembg` library.
+- [Python Pillow Contributors](https://github.com/python-pillow/Pillow/graphs/contributors): Contributors to the `Pillow` library.
+- [SavinaRoja](https://github.com/SavinaRoja): Creator of the `sv_ttk` library.
+
+Thanks to the creators and contributors of these amazing libraries!
+
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 

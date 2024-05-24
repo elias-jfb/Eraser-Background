@@ -48,7 +48,17 @@ def remove_background():
 
 def show_image(image_path, label):
     image = Image.open(image_path)
-    image.thumbnail((200, 200))
+    # Ajustar el tamaño manteniendo la proporción original
+    width, height = image.size
+    if width > 300:
+        new_width = 300
+        new_height = int(height * (new_width / width))
+        image = image.resize((new_width, new_height), Image.LANCZOS)
+    elif height > 300:
+        new_height = 300
+        new_width = int(width * (new_height / height))
+        image = image.resize((new_width, new_height), Image.LANCZOS)
+    # Crear la imagen PhotoImage
     photo = ImageTk.PhotoImage(image)
     label.config(image=photo)
     label.image = photo
@@ -75,18 +85,27 @@ input_image_label = ttk.Label(root)
 output_image_label = ttk.Label(root)
 
 # Ubicar los widgets en la ventana
-input_label.grid(row=0, column=0, padx=10, pady=10)
-input_entry.grid(row=0, column=1, padx=10, pady=10)
-input_button.grid(row=0, column=2, padx=10, pady=10)
+input_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
+input_entry.grid(row=0, column=1, padx=10, pady=10, sticky="ew")
+input_button.grid(row=0, column=2, padx=10, pady=10, sticky="e")
 
-output_label.grid(row=1, column=0, padx=10, pady=10)
-output_entry.grid(row=1, column=1, padx=10, pady=10)
-output_button.grid(row=1, column=2, padx=10, pady=10)
+output_label.grid(row=1, column=0, padx=10, pady=10, sticky="w")
+output_entry.grid(row=1, column=1, padx=10, pady=10, sticky="ew")
+output_button.grid(row=1, column=2, padx=10, pady=10, sticky="e")
 
 process_button.grid(row=2, column=0, columnspan=3, pady=10)
 
-input_image_label.grid(row=3, column=0, columnspan=3, pady=10)
-output_image_label.grid(row=4, column=0, columnspan=3, pady=10)
+# Centrar imágenes
+input_image_label.grid(row=3, column=0, padx=10, pady=10, sticky="nsew")
+output_image_label.grid(row=3, column=1, padx=10, pady=10, sticky="nsew")
+
+# Ajustar la columna
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+root.grid_columnconfigure(2, weight=1)
+
+# Ajustar la fila para centrar las imágenes verticalmente
+root.grid_rowconfigure(3, weight=1)
 
 # Iniciar el bucle principal de la interfaz gráfica
 root.mainloop()
